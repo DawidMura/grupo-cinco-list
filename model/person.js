@@ -1,12 +1,23 @@
-import mongoose from "mongoose"
+import mongoose from "mongoose";
 
+const PersonSchema = new mongoose.Schema({
+  name: {
+    type: String,
+    required: true
+  },
+  age: {
+    type: Number,
+    required: true
+  },
+  skills: {
+      type: Number,
+      required: true,
+      softskills:
+         String,
+      hardskills:
+         String
+      
+  }
+} );
 
-skills: {
-    type: Nummber,
-    required: true,
-    softskills: String,
-    hardskills: String
-}
-
-
-export default mongoose.model("Person, PersonSchema")
+export default mongoose.model("Person", PersonSchema);

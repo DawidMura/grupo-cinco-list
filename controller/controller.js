@@ -1,4 +1,3 @@
-import express from "express";
-import PersonSchema from "./model/PersonSchema.js";
-
+import PersonSchema from "../model/person.js"
 app.get("/")
+
