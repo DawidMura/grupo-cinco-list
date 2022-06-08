@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-async function connnectToMongoose() {
+async function connectToMongoose() {
 	const _pwd = process.env.MONGO_DB_PWD;
 	const _database = "grupo-cinco-list";
 	const _user = "Dawid";
@@ -21,4 +21,4 @@ async function connnectToMongoose() {
 	return true;
 }
 
-export default connnectToMongoose;
+export default connectToMongoose;
