@@ -7,9 +7,6 @@ import fehlerRoute from "./routes/fehler.js"
 const PORT = 3000;
 
 const app = express();
-app.get('/', (req, res) =>{
-    res.send('Hallo grupo 5');
-})
 
 if(await connectToMongoose()) {
     app.listen(PORT, err => {
