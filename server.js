@@ -1,7 +1,7 @@
 import express from "express";
 import mongoose from "mongoose";
 import "dotenv/config";
-import connectToMongoose from "./util/mongoose_connect.js";
+import connectToMongoose from "./util/connnectMongoose.js";
 
 import "dotenv/config";
 import mongoose from "mongoose";
