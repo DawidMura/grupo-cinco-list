@@ -1,10 +1,14 @@
 import { body, check } from "express-validator";
+import PersonSchema from "../model/person.js";
 
 export const registerSchema = [
     body("email")
         .trim()
         .isEmail()
-        .withMessage("Has to be valid email")
+        .custom(email => {
+            return PersonSchema.findUserByEmail(email)
+        })
+        .withMessage("Has to be valid email or email is already use")
         .normalizeEmail(),
     body("password")
         .isLength({ min: 5 })

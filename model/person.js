@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import bcrypt from 'bcrypt';
 
 const PersonSchema = new mongoose.Schema({
   name: {
@@ -11,11 +12,11 @@ const PersonSchema = new mongoose.Schema({
 
   email: {
     type: String,
-    required: true
+    required: true,
   },
 
   password: {
-    type: Number,
+    type: String,
     required: true,
   },
 
@@ -27,5 +28,12 @@ const PersonSchema = new mongoose.Schema({
   able_on: Date,
 
 });
+
+
+PersonSchema.pre('save', async function (next) {
+  this.password = await bcrypt.hash(this.password, 12);
+  next();
+})
+
 
 export default mongoose.model("Person", PersonSchema);
