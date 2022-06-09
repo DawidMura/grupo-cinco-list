@@ -1,11 +1,7 @@
 import express from "express";
-import mongoose from "mongoose";
-import "dotenv/config";
-import connectToMongoose from "./util/mongoose_connect.js";
-
 import "dotenv/config";
 import mongoose from "mongoose";
-import connnectMongoose from "./util/connnectMongoose.js"
+import connectMongoose from "./util/connectMongoose.js"
 import fehler from "./routes/fehler.js"
 import indexRouter from "./routes/index.js"
 
@@ -15,7 +11,7 @@ app.use(express.json());
 
 const PORT = 3000;
 
-if (await connnectMongoose()) {
+if (await connectMongoose()) {
 app.listen(PORT, (err) => {
 if (err) console.error(err);
 console.log(`listening to Port ${PORT}`);
