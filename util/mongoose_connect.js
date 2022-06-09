@@ -3,9 +3,9 @@ import mongoose from 'mongoose';
   
 async function connectToMongoose() {
   const _pwd = process.env.MONGO_DB_PWD;
-  const _database = "grupo-cinco-list";
-  const _user= "antonio";
-  const _cluster = "cluster0.hkufe.mongodb.net";
+  const _database = process.env.MONGO_DATABASE;
+  const _user= process.env.MONGO_USERNAME;
+  const _cluster = process.env.MONGO_CLUSTER;
   const _uri = `mongodb+srv://${_user}:${_pwd}@${_cluster}/${_database}?retryWrites=true&w=majority`;
  
   try {

@@ -1,7 +1,7 @@
 import express from "express";
 import "dotenv/config";
 import mongoose from "mongoose";
-import connectMongoose from "./util/connectMongoose.js"
+import connectMongoose from "./util/mongoose_connect.js"
 import fehler from "./routes/fehler.js"
 import indexRouter from "./routes/index.js"
 
