@@ -10,14 +10,10 @@ const PersonSchema = new mongoose.Schema({
     required: true
   },
   skills: {
-      type: Number,
-      required: true,
-      softskills:
-         String,
-      hardskills:
-         String
-      
+    type: Array,
+    softSkills: String,
+    hardSkills: String
   }
-} );
+});
 
 export default mongoose.model("Person", PersonSchema);

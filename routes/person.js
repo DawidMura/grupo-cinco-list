@@ -1,10 +1,15 @@
 import express from "express";
-
+import { getPersons, addPerson, updatePerson, deletePerson, getOnePerson } from "../controller/controller.js";
 
 const router = express.Router();
 
-router.get("/", (req, res) => {
-    res.send("hola grupo cinco");
-});
+router.route("/")
+    .get(getPersons)
+    .post(addPerson)
 
+
+router.route("/:id")
+    .get(getOnePerson)
+    .put(updatePerson)
+    .delete(deletePerson);
 export default router;
