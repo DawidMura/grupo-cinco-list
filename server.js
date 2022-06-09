@@ -6,8 +6,10 @@ import fehler from "./routes/fehler.js";
 import indexRouter from "./routes/index.js";
 import personsRouter from "./routes/person.js";
 import { body, validationResult } from "express-validator";
-
 import { personValidatorSchema } from "./model/personValidatorSchema.js";
+import { validateRequest } from "./middleware/validatorErrors.js";
+
+import authRoutes from "./routes/auth-routes.js";
 
 const app = express();
 
@@ -26,9 +28,11 @@ app.use("/", indexRouter);
 app.use("/grupo5", personsRouter);
 
 app.use(fehler);
+app.use(authRoutes);
 
-
-app.post("/grupo5", personValidatorSchema, (req, res) => {
+app.post("/grupo5", personValidatorSchema, validateRequest, (req, res) => {
 	res.send(req.body);
-});
+},
+
+);
 

@@ -1,6 +1,6 @@
 import { body, check } from "express-validator";
 
-export const personValidatorSchema = [
+export const registerSchema = [
     body("email")
         .trim()
         .isEmail()
@@ -13,7 +13,4 @@ export const personValidatorSchema = [
         .escape()
         .contains(" ")
         .withMessage("Please provide first and last name"),
-    body("age")
-        .isNumeric()
-        .withMessage("Age must be a number"),
 ];
