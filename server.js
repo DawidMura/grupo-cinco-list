@@ -31,3 +31,4 @@ app.use(fehler);
 app.post("/grupo5", personValidatorSchema, (req, res) => {
 	res.send(req.body);
 });
+

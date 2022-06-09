@@ -3,3 +3,5 @@ node_modules
 mongoose_connect.js
 connectMongoose.js
 data
+package-lock.json
+package.json
