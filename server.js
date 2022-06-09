@@ -4,6 +4,10 @@ import mongoose from "mongoose";
 import connectMongoose from "./util/mongoose_connect.js";
 import fehler from "./routes/fehler.js";
 import indexRouter from "./routes/index.js";
+import personsRouter from "./routes/person.js";
+import { body, validationResult } from "express-validator";
+
+import { personValidatorSchema } from "./model/personValidatorSchema.js";
 
 const app = express();
 
@@ -19,5 +23,11 @@ if (await connectMongoose()) {
 }
 
 app.use("/", indexRouter);
+app.use("/grupo5", personsRouter);
 
 app.use(fehler);
+
+
+app.post("/grupo5", personValidatorSchema, (req, res) => {
+	res.send(req.body);
+});
